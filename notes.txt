@@ -1,0 +1,4 @@
+---------------------------------------------------------
+//! page_name
+burda "page_name: index" şeklinde bir değişken gönderiyorum bu sayede _navigation.ejs partial
+view dosysında o anda o sayfanın açık olduğunu belirtiyorum active ile. 
