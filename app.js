@@ -8,6 +8,7 @@ const bodyParser = require('body-parser')
 //Benim oluşturduklarım
 const pageRoute = require("./routes/pageRoute");
 const courseRoute = require("./routes/courseRoute");
+const categoryRoute = require("./routes/categoryRoute");
 
 const app = express();
 
@@ -29,6 +30,7 @@ app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-
 //Routers
 app.use("/", pageRoute);
 app.use("/courses", courseRoute);
+app.use("/categories", categoryRoute);
 
 // Sunucuyu başlatma
 const port = 3000;
