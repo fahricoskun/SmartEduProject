@@ -1,4 +1,27 @@
 ---------------------------------------------------------
+
 //! page_name
+
 burda "page_name: index" şeklinde bir değişken gönderiyorum bu sayede _navigation.ejs partial
 view dosysında o anda o sayfanın açık olduğunu belirtiyorum active ile. 
+
+---------------------------------------------------------
+
+//! userIN
+
+global bir değişken oluşturduk userIN diye ve bunun ilk değeri null. Daha sonra middleweare kısmında
+userIN bir değere sahipse if koşulunda true görevi görür, burdaki true ya da false durumuna göre
+sayfada gösterilip gösterilmemesini ayarlayabiliriz.
+
+---------------------------------------------------------
+
+//! const MongoStore = require("connect-mongo");
+
+connect-mongo, Express.js uygulamalarında oturumları (sessions) MongoDB veritabanında saklamak 
+için kullanılan bir kütüphanedir. Express.js uygulamalarında oturumlar, kullanıcının kimlik
+doğrulama durumu gibi geçici verilerin saklanmasını sağlar.Varsayılan olarak, Express.js bellek
+tabanlı bir depolama kullanır, ancak bu yöntem ölçeklenebilirlik ve kalıcılık açısından sınırlıdır.
+connect-mongo kullanarak oturum verilerini MongoDB gibi kalıcı bir depolama alanında
+saklayabilirsiniz. Örnek olarak: eğer uygulama çalışırken ve siz login durumundayken sunucuyu
+kapatırsanız tekrar açtığınızda logout olursunuz fakat connect-mongo ile Oturum verileri
+MongoDB'de saklanır, bu nedenle sunucu yeniden başlatıldığında oturum verileri kaybolmaz.
