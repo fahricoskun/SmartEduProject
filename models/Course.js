@@ -26,6 +26,10 @@ const CourseSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Category", //biz bu kursu oluştururken categoriler bu referanstan gelecek
   },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  }
 });
 
 CourseSchema.pre("validate", function (next) {
@@ -35,6 +39,21 @@ CourseSchema.pre("validate", function (next) {
   });
   next();
 });
+
+// Virtual for formatted date
+CourseSchema.virtual('formattedDate').get(function() {
+  return new Date(this.createdAt).toLocaleDateString('tr-TR', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+});
+
+// Convert to JSON
+CourseSchema.set('toJSON', { virtuals: true });
+CourseSchema.set('toObject', { virtuals: true });
 
 // şablonu modele çeviriyoruz
 

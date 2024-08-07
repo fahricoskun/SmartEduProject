@@ -25,3 +25,9 @@ connect-mongo kullanarak oturum verilerini MongoDB gibi kalıcı bir depolama al
 saklayabilirsiniz. Örnek olarak: eğer uygulama çalışırken ve siz login durumundayken sunucuyu
 kapatırsanız tekrar açtığınızda logout olursunuz fakat connect-mongo ile Oturum verileri
 MongoDB'de saklanır, bu nedenle sunucu yeniden başlatıldığında oturum verileri kaybolmaz.
+
+--------------------------------------------------------
+
+//! populate()
+
+bir modelden, referansı olan diğer modele ulaşmak için populate methodu kullanılır
