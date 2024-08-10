@@ -19,9 +19,14 @@ const userRoute = require("./routes/userRoute");
 const app = express();
 
 //Connect DB
-mongoose
-  .connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.v3tvc4x.mongodb.net/?retryWrites=true&w=majority&appName=SmartEDU`)
-  .then(() => console.log("Connected!"));
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.v3tvc4x.mongodb.net/smartedu?retryWrites=true&w=majority`;
+
+mongoose.connect(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
+.then(() => console.log('MongoDB connected successfully'))
+.catch(err => console.error('MongoDB connection error:', err));
 
 //Template Engine
 app.set("view engine", "ejs");
