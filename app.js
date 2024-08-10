@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
+const flash = require("connect-flash");
+const methodOverride = require("method-override");
 
 //Çekirdek paketler
 
@@ -37,6 +39,16 @@ app.use(
     resave: false, //herhangi bir değişiklik olmasa da session'u kaydet (force)
     saveUninitialized: true,
     store: MongoStore.create({ mongoUrl: "mongodb://localhost/smartedu-db" }),
+  })
+);
+app.use(flash());
+app.use((req, res, next) => {
+  res.locals.flashMessages = req.flash();
+  next();
+});
+app.use(
+  methodOverride("_method", {
+    methods: ["POST", "GET"],
   })
 );
 
