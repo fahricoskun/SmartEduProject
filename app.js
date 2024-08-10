@@ -6,6 +6,7 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
 const methodOverride = require("method-override");
+require("dotenv").config();
 
 //Çekirdek paketler
 
@@ -14,13 +15,12 @@ const pageRoute = require("./routes/pageRoute");
 const courseRoute = require("./routes/courseRoute");
 const categoryRoute = require("./routes/categoryRoute");
 const userRoute = require("./routes/userRoute");
-require("dotenv").config();
 
 const app = express();
 
 //Connect DB
 mongoose
-  .connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.v3tvc4x.mongodb.net/?retryWrites=true&w=majority&appName=smartedu-db`)
+  .connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.v3tvc4x.mongodb.net/?retryWrites=true&w=majority&appName=SmartEDU`)
   .then(() => console.log("Connected!"));
 
 //Template Engine
