@@ -14,12 +14,13 @@ const pageRoute = require("./routes/pageRoute");
 const courseRoute = require("./routes/courseRoute");
 const categoryRoute = require("./routes/categoryRoute");
 const userRoute = require("./routes/userRoute");
+require("dotenv").config();
 
 const app = express();
 
 //Connect DB
 mongoose
-  .connect("mongodb://localhost/smartedu-db")
+  .connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.v3tvc4x.mongodb.net/?retryWrites=true&w=majority&appName=smartedu-db`)
   .then(() => console.log("Connected!"));
 
 //Template Engine
@@ -65,7 +66,7 @@ app.use("/login", pageRoute);
 app.use("/users", userRoute);
 
 // Sunucuyu başlatma
-const port = 3000;
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
   console.log(`App started on port ${port}`);
