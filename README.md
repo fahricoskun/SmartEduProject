@@ -1,6 +1,6 @@
 # SmartEDU
 
-Free Template Link: [https://templatemo.com/tm-552-video-catalog]
+Free Template Link: [https://templatemo.com/tm-552-video-catalog](https://www.free-css.com/free-css-templates/page252/smartedu)]
 
 ## Getting Started
 
