@@ -21,12 +21,10 @@ const app = express();
 //Connect DB
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.v3tvc4x.mongodb.net/smartedu?retryWrites=true&w=majority`;
 
-mongoose.connect(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
-.then(() => console.log('MongoDB connected successfully'))
-.catch(err => console.error('MongoDB connection error:', err));
+// Bağlantıyı oluştur
+mongoose.connect(uri)
+    .then(() => console.log('MongoDB connected successfully'))
+    .catch(err => console.error('MongoDB connection error:', err));
 
 //Template Engine
 app.set("view engine", "ejs");
